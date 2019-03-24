@@ -1,1 +1,1 @@
-# catalog
+# autoload with composer
