@@ -3,6 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use \App\Car;
 use \App\Truck;
+use \App\President;
 
 $car = new Car();
 $car->setBrand('BMW');
@@ -22,7 +23,7 @@ $truck->setVin('7654321');
 $truck->setModel('FH16');
 
 echo $truck->getBrand() . PHP_EOL;
-echo $truck->setPayload() . PHP_EOL;
+echo $truck->getPayload() . PHP_EOL;
 
 $vehicles = [];
 $vehicles[] = $car;
@@ -34,3 +35,14 @@ foreach ($vehicles as $vehicle) {
     echo $vehicle->getVin() . PHP_EOL;
     echo $vehicle->getModel() . PHP_EOL;
 }
+
+//// use Singleton
+echo PHP_EOL . ' Singleton ' . PHP_EOL;
+
+$president = President::getInstance();
+echo $president->speech();
+echo $president->speech();
+
+$newPresident = President::getInstance();
+echo $newPresident->speech();
+echo $president->speech();
